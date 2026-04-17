@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d2e5f7",
+                        "tertiary-fixed-dim": "#c4cbe9",
+                        "secondary-fixed-dim": "#d7d3d8",
+                        "on-primary-container": "#3f33d6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#403f43",
+                        "primary-dim": "#4034d7",
+                        "surface-container": "#e4effc",
+                        "background": "#f6f9ff",
+                        "on-primary": "#faf6ff",
+                        "secondary-dim": "#545256",
+                        "primary-fixed": "#e2dfff",
+                        "inverse-surface": "#090f14",
+                        "on-tertiary-container": "#444c65",
+                        "on-error": "#fff7f7",
+                        "on-tertiary-fixed": "#323951",
+                        "inverse-primary": "#8582ff",
+                        "primary-fixed-dim": "#d2d0ff",
+                        "on-surface": "#233442",
+                        "primary": "#4d44e3",
+                        "on-secondary-fixed-variant": "#5c5b5f",
+                        "outline-variant": "#a2b4c5",
+                        "tertiary-fixed": "#d2d9f8",
+                        "on-tertiary-fixed-variant": "#4e556f",
+                        "error-dim": "#4f0116",
+                        "tertiary": "#575e78",
+                        "secondary-fixed": "#e5e1e6",
+                        "on-tertiary": "#faf8ff",
+                        "tertiary-container": "#d2d9f8",
+                        "on-surface-variant": "#506170",
+                        "inverse-on-surface": "#989da4",
+                        "surface-bright": "#f6f9ff",
+                        "secondary": "#605e62",
+                        "surface-container-high": "#dbeaf9",
+                        "primary-container": "#e2dfff",
+                        "error-container": "#ff8b9a",
+                        "on-primary-fixed-variant": "#4a40e0",
+                        "surface-dim": "#c7ddf2",
+                        "on-error-container": "#782232",
+                        "on-primary-fixed": "#2a13c5",
+                        "on-secondary": "#fcf8fc",
+                        "on-secondary-container": "#525155",
+                        "surface-container-low": "#ecf4fe",
+                        "surface-tint": "#4d44e3",
+                        "tertiary-dim": "#4b526c",
+                        "surface-variant": "#d2e5f7",
+                        "outline": "#6b7d8d",
+                        "on-background": "#233442",
+                        "surface": "#f6f9ff",
+                        "secondary-container": "#e5e1e6",
+                        "error": "#9e3f4e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f6f9ff; }
+        .neumorphic-extruded {
+            box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.8), 6px 6px 12px rgba(35, 52, 66, 0.08);
+        }
+        .neumorphic-inset {
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(35, 52, 66, 0.08);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-inset {
+            box-shadow: inset -3px -3px 7px rgba(255, 255, 255, 0.7), inset 3px 3px 7px rgba(35, 52, 66, 0.1);
+        }
+    </style>
+</head>
+<body class="text-on-surface bg-surface min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center max-w-screen-2xl mx-auto bg-[#F6F9FF] px-6 py-4 shadow-[-6px_-6px_12px_rgba(255,255,255,0.8),6px_6px_12px_rgba(35,52,66,0.08)]">
+<div class="text-xl font-extrabold tracking-tighter text-[#233442] dark:text-white uppercase">IPO Insight</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#233442] opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all px-4 py-2 rounded-lg" href="#">Dashboard</a>
+<a class="text-[#4D44E3] font-bold border-b-2 border-[#4D44E3] font-['Plus_Jakarta_Sans'] text-sm tracking-wide px-4 py-2" href="#">Market Analysis</a>
+<a class="text-[#233442] opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all px-4 py-2 rounded-lg" href="#">Portfolio</a>
+</div>
+<div class="flex items-center space-x-4">
+<div class="neumorphic-inset px-4 py-2 rounded-full flex items-center space-x-2 w-48 lg:w-64">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full" placeholder="Search insights..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant p-2 rounded-full neumorphic-extruded">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 rounded-full neumorphic-extruded">account_circle</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 p-6 hidden lg:flex flex-col justify-between bg-[#F6F9FF] z-40 shadow-[6px_0px_12px_rgba(35,52,66,0.05)] pt-24">
+<div class="space-y-6">
+<div class="flex items-center space-x-3 mb-8">
+<div class="w-10 h-10 rounded-xl neumorphic-extruded flex items-center justify-center bg-primary-container">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<div class="text-sm font-black text-[#233442] leading-tight">IPO Insight</div>
+<div class="text-[10px] uppercase tracking-widest text-outline">Precision Intelligence</div>
+</div>
+</div>
+<nav class="space-y-4">
+<a class="flex items-center space-x-3 text-[#233442] opacity-70 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 shadow-[inset_-3px_-3px_7px_rgba(255,255,255,0.7),inset_3px_3px_7px_rgba(35,52,66,0.1)] rounded-xl bg-[#F0F4F8] text-[#4D44E3] py-3 px-4 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Market Analysis</span>
+</a>
+<a class="flex items-center space-x-3 text-[#233442] opacity-70 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Portfolio</span>
+</a>
+<a class="flex items-center space-x-3 text-[#233442] opacity-70 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span>About</span>
+</a>
+</nav>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl neumorphic-extruded font-bold tracking-widest text-sm uppercase hover:scale-[0.98] transition-transform">
+            Predict
+        </button>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-28 pb-12 px-6 lg:px-10 min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-2">Market Intelligence</h1>
+<p class="text-on-surface-variant font-medium max-w-2xl">Advanced predictive models and correlation matrices for upcoming public offerings. Sculpted for precision decision-making.</p>
+</header>
+<div class="hidden neumorphic-inset rounded-xl p-4 mb-8 flex items-center justify-between" id="insights-status-wrap">
+<span id="insights-status"></span>
+<button class="neumorphic-extruded px-4 py-2 rounded-full text-xs font-bold text-outline" id="insights-retry" type="button">Retry</button>
+</div>
+<!-- Insights Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Correlation Scatter Plot (Large Card) -->
+<section class="md:col-span-8 neumorphic-extruded rounded-lg p-8 bg-surface-container-lowest">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h2 class="text-lg font-bold text-on-surface">Subscription vs Listing Gain</h2>
+<span class="text-xs font-bold uppercase tracking-widest text-outline-variant">Correlation Matrix</span>
+</div>
+<div class="flex space-x-2">
+<button class="neumorphic-inset px-3 py-1 rounded-full text-[10px] font-bold text-primary">RETAIL</button>
+<button class="neumorphic-extruded px-3 py-1 rounded-full text-[10px] font-bold text-on-surface-variant">HNI</button>
+</div>
+</div>
+<div class="h-64 neumorphic-inset rounded-xl relative p-6 overflow-hidden bg-surface">
+<div class="absolute inset-0 flex items-end justify-between px-8 pb-8" id="insights-scatter-canvas-wrap">
+<div class="w-full h-full relative" id="insights-scatter-canvas"></div>
+</div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-[9px] font-bold text-outline-variant uppercase tracking-tighter" id="insights-scatter-x-label">Subscription Multiplier (x)</div>
+<div class="absolute left-2 top-1/2 -rotate-90 -translate-y-1/2 text-[9px] font-bold text-outline-variant uppercase tracking-tighter" id="insights-scatter-y-label">Listing Gain (%)</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<p class="text-xs text-on-surface-variant italic" id="insights-correlation-note">Correlation summary will appear when data is available.</p>
+<span class="material-symbols-outlined text-primary">arrow_right_alt</span>
+</div>
+</section>
+<!-- Quick Stats (Small Cards) -->
+<aside class="md:col-span-4 flex flex-col gap-8">
+<div class="neumorphic-extruded rounded-lg p-6 bg-surface-container-lowest flex items-center justify-between" id="insights-sentiment-card">
+<div>
+<div class="text-[10px] font-bold text-outline-variant uppercase tracking-widest mb-1">Sentiment Score</div>
+<div class="text-3xl font-black text-on-surface" id="insights-sentiment-score">--</div>
+</div>
+<div class="w-14 h-14 rounded-full neumorphic-inset flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+</div>
+<div class="neumorphic-extruded rounded-lg p-6 bg-surface-container-lowest flex items-center justify-between" id="insights-success-card">
+<div>
+<div class="text-[10px] font-bold text-outline-variant uppercase tracking-widest mb-1">Success Rate</div>
+<div class="text-3xl font-black text-on-surface" id="insights-success-rate">--</div>
+</div>
+<div class="w-14 h-14 rounded-full neumorphic-inset flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="neumorphic-extruded rounded-lg p-6 bg-primary-container/30 border border-primary/5">
+<h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-4">Model Comparison Metrics</h3>
+<div class="space-y-4" id="insights-model-metrics-list">
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold">Loading...</span>
+<span class="text-xs font-bold text-primary">--</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Feature Importance (Medium Card) -->
+<section class="md:col-span-6 neumorphic-extruded rounded-lg p-8 bg-surface-container-lowest">
+<div class="mb-8">
+<h2 class="text-lg font-bold text-on-surface">Model Weights</h2>
+<span class="text-xs font-bold uppercase tracking-widest text-outline-variant">Feature Importance (SHAP)</span>
+</div>
+<div class="space-y-6" id="insights-feature-importance-list">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-tighter">
+<span>Loading</span>
+<span>--</span>
+</div>
+<div class="h-4 neumorphic-inset rounded-full overflow-hidden">
+<div class="h-full w-[40%] bg-gradient-to-r from-primary to-primary-dim rounded-full shadow-lg shadow-primary/20"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sector Performance Heatmap (Medium Card) -->
+<section class="md:col-span-6 neumorphic-extruded rounded-lg p-8 bg-surface-container-lowest overflow-hidden">
+<div class="mb-8">
+<h2 class="text-lg font-bold text-on-surface">Sector Velocity</h2>
+<span class="text-xs font-bold uppercase tracking-widest text-outline-variant">Market Heatmap</span>
+</div>
+<div class="grid grid-cols-3 gap-4 h-64">
+<div class="neumorphic-extruded bg-primary-container flex flex-col justify-center items-center rounded-xl p-4 text-center">
+<span class="text-[10px] font-bold text-primary uppercase">Tech</span>
+<span class="text-lg font-black text-primary">+85%</span>
+</div>
+<div class="neumorphic-inset bg-surface-container-low flex flex-col justify-center items-center rounded-xl p-4 text-center">
+<span class="text-[10px] font-bold text-outline uppercase">Health</span>
+<span class="text-lg font-black text-outline">+12%</span>
+</div>
+<div class="neumorphic-extruded bg-primary-fixed flex flex-col justify-center items-center rounded-xl p-4 text-center">
+<span class="text-[10px] font-bold text-on-primary-fixed-variant uppercase">EV</span>
+<span class="text-lg font-black text-on-primary-fixed-variant">+54%</span>
+</div>
+<div class="neumorphic-inset bg-surface-container-high col-span-2 flex justify-between items-center rounded-xl px-6">
+<div class="text-left">
+<span class="text-[10px] font-bold text-outline uppercase">FMCG</span>
+<div class="text-lg font-black text-on-surface">+08%</div>
+</div>
+<span class="material-symbols-outlined text-outline">drag_handle</span>
+</div>
+<div class="neumorphic-extruded bg-primary flex flex-col justify-center items-center rounded-xl p-4 text-center">
+<span class="text-[10px] font-bold text-on-primary uppercase">Fin</span>
+<span class="text-lg font-black text-on-primary">+72%</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Featured Media Section -->
+<section class="mt-12">
+<div class="neumorphic-extruded rounded-lg overflow-hidden bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="p-10 flex flex-col justify-center">
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4">Deep Dive Analyst View</span>
+<h2 class="text-3xl font-extrabold text-on-surface mb-6 leading-tight">Quantifying the 'Gray Market' Hype Cycle</h2>
+<p class="text-on-surface-variant mb-8 text-sm leading-relaxed">Our proprietary algorithm decomposes GMP movements into core fundamental drivers and emotional sentiment. Discover why 2024 is seeing unprecedented volatility in pre-listing valuations.</p>
+<div class="flex space-x-4">
+<button class="neumorphic-extruded px-6 py-3 rounded-full bg-primary text-on-primary text-xs font-bold uppercase tracking-widest hover:scale-[0.98] transition-transform">Read Report</button>
+<button class="neumorphic-extruded px-6 py-3 rounded-full bg-surface text-primary text-xs font-bold uppercase tracking-widest hover:scale-[0.98] transition-transform">Watch Video</button>
+</div>
+</div>
+<div class="relative h-64 md:h-auto min-h-[300px]">
+<img alt="Abstract financial visualization" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern dark financial terminal display with glowing blue and purple line charts representing market volatility and stock trends" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj30JxZCttpgnGdy8q9_LXrZSKEUw-BY5_R1Smt-wbJQffAOTodihiCKBJPBPzEYLIAp3FgSwZY0qTcKUz1XhEAJeVcaK941PP9dBgkwL6ts0q-_V7I2jV8_EHtKUvrDJxm-gVme9LDfcuaMCvoW9XsVYXC5gcPxXWreUmpdYyoHxG_kaZF26fGIkFzTaZWfVP9tHC66mWoZ5851aHBWxZY7SZvQEKEHyD8JxnZNImrxs9Vp7O4Af53tEv6UB0-x7qShjRh76Tv1E"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Ticker / Footer Meta -->
+<footer class="mt-12 flex flex-col md:flex-row justify-between items-center p-8 neumorphic-inset rounded-xl">
+<div class="flex items-center space-x-6 mb-4 md:mb-0">
+<div class="flex items-center space-x-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest">Live Feed</span>
+</div>
+<div class="text-xs font-medium text-on-surface-variant">
+<span class="font-bold text-on-surface">NEXUS</span> +2.4% volatility | <span class="font-bold text-on-surface">CLOUDS</span> Subscription at 12.4x
+                </div>
+</div>
+<div class="text-[10px] font-bold text-outline-variant uppercase tracking-widest">
+                Data refreshed: 2 minutes ago
+            </div>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low px-4 py-3 flex justify-around items-center z-50 shadow-[-6px_-6px_12px_rgba(255,255,255,0.8),6px_6px_12px_rgba(35,52,66,0.08)]">
+<button class="flex flex-col items-center space-y-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-primary active-inset p-2 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="text-[10px] font-bold">Insights</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Wallet</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+<script id="stitch-nav-routing">
+    (function () {
+        var routeMap = {
+            dashboard: "/stitch/dashboard.html",
+            "market analysis": "/stitch/insights.html",
+            analysis: "/stitch/model-comparison.html",
+            insights: "/stitch/insights.html",
+            portfolio: "/stitch/history.html",
+            "portfolio history": "/stitch/history.html",
+            history: "/stitch/history.html",
+            watchlist: "/stitch/about.html",
+            "about us": "/stitch/about.html",
+            about: "/stitch/about.html",
+            predict: "/stitch/predict-ipo.html",
+            "predict now": "/stitch/predict-ipo.html",
+            "predict ipo": "/stitch/predict-ipo.html"
+        };
+
+        var anchors = document.querySelectorAll('a[href="#"]');
+        anchors.forEach(function (anchor) {
+            var text = (anchor.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+            if (!text) {
+                return;
+            }
+
+            var target = routeMap[text];
+            if (!target) {
+                Object.keys(routeMap).some(function (key) {
+                    if (text.indexOf(key) !== -1) {
+                        target = routeMap[key];
+                        return true;
+                    }
+                    return false;
+                });
+            }
+
+            if (target) {
+                anchor.setAttribute("href", target);
+            }
+        });
+    })();
+</script>
+<script id="insights-api-wiring">
+    (function () {
+        var backendBase = window.IPO_API_BASE_URL || "http://localhost:8000";
+        var statusBox = document.getElementById("insights-status");
+        var statusWrap = document.getElementById("insights-status-wrap");
+        var retryBtn = document.getElementById("insights-retry");
+        var featureList = document.getElementById("insights-feature-importance-list");
+        var metricsList = document.getElementById("insights-model-metrics-list");
+        var scatterCanvas = document.getElementById("insights-scatter-canvas");
+        var xLabel = document.getElementById("insights-scatter-x-label");
+        var yLabel = document.getElementById("insights-scatter-y-label");
+        var correlationNote = document.getElementById("insights-correlation-note");
+        var sentimentCard = document.getElementById("insights-sentiment-card");
+        var successCard = document.getElementById("insights-success-card");
+        var sentimentValue = document.getElementById("insights-sentiment-score");
+        var successValue = document.getElementById("insights-success-rate");
+
+        function setStatus(message, isError) {
+            if (!statusBox || !statusWrap) {
+                return;
+            }
+
+            if (!message) {
+                statusBox.textContent = "";
+                statusWrap.classList.add("hidden");
+                return;
+            }
+
+            statusBox.textContent = message;
+            statusWrap.classList.remove("hidden");
+            statusBox.classList.remove("text-error", "text-outline");
+            statusBox.classList.add(isError ? "text-error" : "text-outline");
+        }
+
+        function renderFeatures(features) {
+            if (!featureList) {
+                return;
+            }
+
+            if (!features || !features.length) {
+                featureList.innerHTML = '<p class="text-sm text-outline">No data available</p>';
+                return;
+            }
+
+            var maxValue = Math.max.apply(null, features.map(function (item) { return Number(item.importance || 0); })) || 1;
+            featureList.innerHTML = features.map(function (item) {
+                var val = Number(item.importance || 0);
+                var width = Math.max(5, Math.round((val / maxValue) * 100));
+                return (
+                    '<div class="space-y-2">' +
+                    '<div class="flex justify-between text-xs font-bold uppercase tracking-tighter"><span>' + (item.feature || "feature") + '</span><span>' + val.toFixed(4) + '</span></div>' +
+                    '<div class="h-4 neumorphic-inset rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-primary to-primary-dim rounded-full shadow-lg shadow-primary/20" style="width:' + width + '%"></div></div>' +
+                    '</div>'
+                );
+            }).join("");
+        }
+
+        function renderMetrics(metrics) {
+            if (!metricsList) {
+                return;
+            }
+
+            if (!metrics || !metrics.length) {
+                metricsList.innerHTML = '<p class="text-sm text-outline">No data available</p>';
+                return;
+            }
+
+            metricsList.innerHTML = metrics.map(function (item) {
+                return (
+                    '<div class="flex items-center justify-between">' +
+                    '<span class="text-sm font-semibold">' + item.model + '</span>' +
+                    '<span class="text-xs font-bold text-primary">MAE ' + Number(item.mae).toFixed(2) + ' | R² ' + Number(item.r2).toFixed(2) + '</span>' +
+                    '</div>'
+                );
+            }).join("");
+        }
+
+        function renderScatter(scatter) {
+            if (!scatterCanvas) {
+                return;
+            }
+
+            var points = (scatter && scatter.points) ? scatter.points : [];
+            if (xLabel) {
+                xLabel.textContent = (scatter && scatter.x_label) ? scatter.x_label : "Subscription Multiplier (x)";
+            }
+            if (yLabel) {
+                yLabel.textContent = (scatter && scatter.y_label) ? scatter.y_label : "Listing Gain (%)";
+            }
+
+            if (!points.length) {
+                scatterCanvas.innerHTML = '<div class="absolute inset-0 flex items-center justify-center text-sm text-outline">No data available</div>';
+                if (correlationNote) {
+                    correlationNote.textContent = "No data available";
+                }
+                return;
+            }
+
+            var xs = points.map(function (p) { return Number(p.x || 0); });
+            var ys = points.map(function (p) { return Number(p.y || 0); });
+            var minX = Math.min.apply(null, xs);
+            var maxX = Math.max.apply(null, xs);
+            var minY = Math.min.apply(null, ys);
+            var maxY = Math.max.apply(null, ys);
+            var xSpan = (maxX - minX) || 1;
+            var ySpan = (maxY - minY) || 1;
+
+            var svgParts = [];
+            svgParts.push('<svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute inset-0 w-full h-full">');
+            svgParts.push('<line x1="5" y1="95" x2="95" y2="95" stroke="rgba(107,125,141,0.2)" stroke-width="0.5"/>');
+            svgParts.push('<line x1="5" y1="5" x2="5" y2="95" stroke="rgba(107,125,141,0.2)" stroke-width="0.5"/>');
+
+            // trend line from first to last by x ordering for readability.
+            var ordered = points.slice().sort(function (a, b) { return Number(a.x || 0) - Number(b.x || 0); });
+            var first = ordered[0];
+            var last = ordered[ordered.length - 1];
+            var firstX = 5 + ((Number(first.x || 0) - minX) / xSpan) * 90;
+            var firstY = 95 - ((Number(first.y || 0) - minY) / ySpan) * 90;
+            var lastX = 5 + ((Number(last.x || 0) - minX) / xSpan) * 90;
+            var lastY = 95 - ((Number(last.y || 0) - minY) / ySpan) * 90;
+            svgParts.push('<line x1="' + firstX.toFixed(2) + '" y1="' + firstY.toFixed(2) + '" x2="' + lastX.toFixed(2) + '" y2="' + lastY.toFixed(2) + '" stroke="rgba(77,68,227,0.2)" stroke-width="1"/>');
+
+            points.forEach(function (point) {
+                var cx = 5 + ((Number(point.x || 0) - minX) / xSpan) * 90;
+                var cy = 95 - ((Number(point.y || 0) - minY) / ySpan) * 90;
+                svgParts.push('<circle cx="' + cx.toFixed(2) + '" cy="' + cy.toFixed(2) + '" r="1.8" fill="rgba(77,68,227,0.65)" stroke="rgba(77,68,227,1)" stroke-width="0.5"><title>' + (point.label || 'IPO') + '</title></circle>');
+            });
+
+            svgParts.push('</svg>');
+            scatterCanvas.innerHTML = svgParts.join("");
+
+            if (correlationNote) {
+                if (typeof scatter.correlation === "number" && isFinite(scatter.correlation)) {
+                    correlationNote.textContent = "Observed correlation (r = " + scatter.correlation.toFixed(2) + ") from available prediction history.";
+                } else {
+                    correlationNote.textContent = "Correlation not available yet due to limited data variation.";
+                }
+            }
+        }
+
+        function renderSummary(summary) {
+            var sentiment = summary ? summary.sentiment_score : null;
+            var success = summary ? summary.success_rate : null;
+
+            if (sentimentCard) {
+                sentimentCard.classList.toggle("hidden", sentiment === null || sentiment === undefined);
+            }
+            if (successCard) {
+                successCard.classList.toggle("hidden", success === null || success === undefined);
+            }
+
+            if (sentimentValue && sentiment !== null && sentiment !== undefined) {
+                sentimentValue.textContent = Number(sentiment).toFixed(1);
+            }
+            if (successValue && success !== null && success !== undefined) {
+                successValue.textContent = Number(success).toFixed(0) + "%";
+            }
+        }
+
+        async function loadInsights() {
+            setStatus("Loading...", false);
+            try {
+                var response = await fetch(backendBase + "/insights");
+                var data = await response.json();
+                if (!response.ok) {
+                    setStatus((data && data.error) ? data.error : "Failed to load insights", true);
+                    return;
+                }
+
+                renderFeatures(data.feature_importance || []);
+                renderMetrics(data.model_metrics || []);
+                renderScatter(data.scatter || {});
+                renderSummary(data.summary || {});
+
+                if (!(data.feature_importance || []).length && !(data.model_metrics || []).length) {
+                    setStatus("No data available", false);
+                } else {
+                    setStatus("", false);
+                }
+            } catch (error) {
+                setStatus("Unable to load insights. Refresh to retry.", true);
+                renderScatter({ points: [] });
+                renderSummary({ sentiment_score: null, success_rate: null });
+            }
+        }
+
+        if (retryBtn) {
+            retryBtn.addEventListener("click", function () {
+                loadInsights();
+            });
+        }
+
+        loadInsights();
+    })();
+</script>
+<script src="/stitch/bridge.js"></script>
+</body></html>

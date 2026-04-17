@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IPO Insight | Precision Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d2e5f7",
+                    "tertiary-fixed-dim": "#c4cbe9",
+                    "secondary-fixed-dim": "#d7d3d8",
+                    "on-primary-container": "#3f33d6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#403f43",
+                    "primary-dim": "#4034d7",
+                    "surface-container": "#e4effc",
+                    "background": "#f6f9ff",
+                    "on-primary": "#faf6ff",
+                    "secondary-dim": "#545256",
+                    "primary-fixed": "#e2dfff",
+                    "inverse-surface": "#090f14",
+                    "on-tertiary-container": "#444c65",
+                    "on-error": "#fff7f7",
+                    "on-tertiary-fixed": "#323951",
+                    "inverse-primary": "#8582ff",
+                    "primary-fixed-dim": "#d2d0ff",
+                    "on-surface": "#233442",
+                    "primary": "#4d44e3",
+                    "on-secondary-fixed-variant": "#5c5b5f",
+                    "outline-variant": "#a2b4c5",
+                    "tertiary-fixed": "#d2d9f8",
+                    "on-tertiary-fixed-variant": "#4e556f",
+                    "error-dim": "#4f0116",
+                    "tertiary": "#575e78",
+                    "secondary-fixed": "#e5e1e6",
+                    "on-tertiary": "#faf8ff",
+                    "tertiary-container": "#d2d9f8",
+                    "on-surface-variant": "#506170",
+                    "inverse-on-surface": "#989da4",
+                    "surface-bright": "#f6f9ff",
+                    "secondary": "#605e62",
+                    "surface-container-high": "#dbeaf9",
+                    "primary-container": "#e2dfff",
+                    "error-container": "#ff8b9a",
+                    "on-primary-fixed-variant": "#4a40e0",
+                    "surface-dim": "#c7ddf2",
+                    "on-error-container": "#782232",
+                    "on-primary-fixed": "#2a13c5",
+                    "on-secondary": "#fcf8fc",
+                    "on-secondary-container": "#525155",
+                    "surface-container-low": "#ecf4fe",
+                    "surface-tint": "#4d44e3",
+                    "tertiary-dim": "#4b526c",
+                    "surface-variant": "#d2e5f7",
+                    "outline": "#6b7d8d",
+                    "on-background": "#233442",
+                    "surface": "#f6f9ff",
+                    "secondary-container": "#e5e1e6",
+                    "error": "#9e3f4e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F6F9FF; }
+        .neumorphic-extruded {
+            box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.8), 6px 6px 12px rgba(35, 52, 66, 0.08);
+        }
+        .neumorphic-inset {
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(35, 52, 66, 0.08);
+        }
+        .neumorphic-active {
+            box-shadow: inset -3px -3px 7px rgba(255, 255, 255, 0.7), inset 3px 3px 7px rgba(35, 52, 66, 0.1);
+        }
+        .hover-lift:hover {
+            box-shadow: -8px -8px 16px rgba(255, 255, 255, 0.9), 8px 8px 16px rgba(35, 52, 66, 0.12);
+            transform: translateY(-2px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center max-w-screen-2xl mx-auto bg-[#F6F9FF] dark:bg-[#0F172A] px-6 py-4 shadow-[-6px_-6px_12px_rgba(255,255,255,0.8),6px_6px_12px_rgba(35,52,66,0.08)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-[#233442] dark:text-white">IPO Insight</span>
+<div class="hidden md:flex gap-6 font-['Plus_Jakarta_Sans'] text-sm tracking-wide">
+<a class="text-[#4D44E3] font-bold border-b-2 border-[#4D44E3]" href="#">Dashboard</a>
+<a class="text-[#233442] dark:text-slate-400 opacity-70 hover:opacity-100 transition-all" href="#">Market Analysis</a>
+<a class="text-[#233442] dark:text-slate-400 opacity-70 hover:opacity-100 transition-all" href="#">Portfolio</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="neumorphic-inset flex items-center px-4 py-2 rounded-full w-64">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full" placeholder="Search IPOs..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="neumorphic-extruded p-2 rounded-full hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="neumorphic-extruded p-2 rounded-full hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#F6F9FF] dark:bg-[#0F172A] p-6 flex flex-col justify-between shadow-[6px_0px_12px_rgba(35,52,66,0.05)] pt-24 hidden lg:flex">
+<div class="space-y-6">
+<div class="flex flex-col mb-10">
+<span class="text-lg font-black text-[#233442] dark:text-white uppercase">IPO Insight</span>
+<span class="text-[10px] font-medium uppercase tracking-[0.2em] text-outline">Precision Intelligence</span>
+</div>
+<nav class="space-y-4">
+<a class="flex items-center gap-3 shadow-[inset_-3px_-3px_7px_rgba(255,255,255,0.7),inset_3px_3px_7px_rgba(35,52,66,0.1)] rounded-xl bg-[#F0F4F8] text-[#4D44E3] py-3 px-4 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 text-[#233442] dark:text-slate-400 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest hover:text-[#4D44E3]" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span> Market Analysis
+                </a>
+<a class="flex items-center gap-3 text-[#233442] dark:text-slate-400 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest hover:text-[#4D44E3]" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Portfolio
+                </a>
+<a class="flex items-center gap-3 text-[#233442] dark:text-slate-400 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest hover:text-[#4D44E3]" href="#">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span> About
+                </a>
+</nav>
+</div>
+<button class="neumorphic-extruded py-4 px-6 rounded-xl text-primary font-bold hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] active:scale-95 transition-all">
+            Predict Now
+        </button>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-24 pb-12 px-8 min-h-screen">
+<!-- Hero Section -->
+<header class="mb-12">
+<div class="neumorphic-extruded rounded-xl p-10 bg-gradient-to-br from-surface to-surface-container-low flex items-center justify-between overflow-hidden relative">
+<div class="z-10 max-w-xl">
+<span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Intelligence Engine v4.2</span>
+<h1 class="text-5xl font-extrabold text-on-surface leading-tight mb-6">Predict IPO Listing Gain</h1>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed">Harness the power of tactile precision analytics. Our ML models simulate market sentiment to forecast listing performance with up to 92% historical accuracy.</p>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-8 py-3 rounded-full font-bold shadow-[0_10px_20px_rgba(77,68,227,0.3)] hover:scale-105 transition-transform" data-route="/insights" id="dashboard-analysis-btn" type="button">Analysis</button>
+<button class="neumorphic-extruded px-8 py-3 rounded-full font-bold text-on-surface hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all" data-route="/model-comparison" id="dashboard-methodology-btn" type="button">View Methodology</button>
+</div>
+</div>
+<div class="hidden xl:block w-96 h-96 absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[400px] text-primary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+</div>
+</header>
+<div class="hidden neumorphic-inset rounded-xl p-4 mb-8" id="dashboard-status"></div>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<!-- Total IPOs -->
+<div class="neumorphic-extruded p-6 rounded-lg hover-lift transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary p-3 neumorphic-inset rounded-xl">database</span>
+<span class="text-xs font-bold text-on-surface-variant">+12% vs LY</span>
+</div>
+<p class="text-sm font-bold text-outline tracking-wider uppercase mb-1">Total Predictions</p>
+<h3 class="text-3xl font-black text-on-surface" id="dashboard-total-predictions">--</h3>
+</div>
+<!-- Accuracy -->
+<div class="neumorphic-extruded p-6 rounded-lg hover-lift transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary p-3 neumorphic-inset rounded-xl">verified</span>
+<span class="text-xs font-bold text-on-surface-variant text-green-600">Stable</span>
+</div>
+<p class="text-sm font-bold text-outline tracking-wider uppercase mb-1">Avg Gain</p>
+<h3 class="text-3xl font-black text-on-surface" id="dashboard-avg-gain">--</h3>
+</div>
+<!-- Best Model -->
+<div class="neumorphic-extruded p-6 rounded-lg hover-lift transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary p-3 neumorphic-inset rounded-xl">psychology</span>
+<span class="text-xs font-bold text-on-surface-variant" id="dashboard-best-model-badge">--</span>
+</div>
+<p class="text-sm font-bold text-outline tracking-wider uppercase mb-1">Best Model</p>
+<h3 class="text-3xl font-black text-on-surface" id="dashboard-best-model">--</h3>
+</div>
+<!-- Latest Gain -->
+<div class="neumorphic-extruded p-6 rounded-lg hover-lift transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary p-3 neumorphic-inset rounded-xl">trending_up</span>
+<span class="text-xs font-bold text-on-surface-variant" id="dashboard-recent-category">--</span>
+</div>
+<p class="text-sm font-bold text-outline tracking-wider uppercase mb-1">Latest Gain</p>
+<h3 class="text-3xl font-black text-on-surface" id="dashboard-recent-gain">--</h3>
+</div>
+</section>
+<!-- Bento Layout: Trends & Recent Predictions -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Large Tactile Chart Area -->
+<section class="lg:col-span-2 space-y-6">
+<div class="neumorphic-extruded p-8 rounded-lg min-h-[500px] flex flex-col">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h2 class="text-xl font-bold text-on-surface">Prediction Convergence Trends</h2>
+<p class="text-xs font-medium text-outline uppercase tracking-widest mt-1">Simulated performance vs. actual listing gains</p>
+</div>
+<div class="flex gap-2">
+<button class="neumorphic-inset px-4 py-1 rounded-full text-xs font-bold text-primary">Monthly</button>
+<button class="neumorphic-extruded px-4 py-1 rounded-full text-xs font-bold text-outline opacity-60">Yearly</button>
+</div>
+</div>
+<!-- Abstract Chart Representation -->
+<div class="flex-grow flex items-end justify-between px-4 pb-4 gap-4">
+<div class="w-16 bg-surface-container-high neumorphic-inset rounded-full h-1/2 relative group">
+<div class="absolute bottom-0 w-full bg-primary rounded-full h-3/4 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="w-16 bg-surface-container-high neumorphic-inset rounded-full h-2/3 relative group">
+<div class="absolute bottom-0 w-full bg-primary rounded-full h-1/2 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="w-16 bg-surface-container-high neumorphic-inset rounded-full h-3/4 relative group">
+<div class="absolute bottom-0 w-full bg-primary rounded-full h-5/6 opacity-80 group-hover:opacity-100 transition-opacity shadow-[0_0_15px_rgba(77,68,227,0.4)]"></div>
+</div>
+<div class="w-16 bg-surface-container-high neumorphic-inset rounded-full h-1/2 relative group">
+<div class="absolute bottom-0 w-full bg-primary rounded-full h-1/3 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="w-16 bg-surface-container-high neumorphic-inset rounded-full h-2/3 relative group">
+<div class="absolute bottom-0 w-full bg-primary rounded-full h-2/3 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="w-16 bg-surface-container-high neumorphic-inset rounded-full h-5/6 relative group">
+<div class="absolute bottom-0 w-full bg-primary rounded-full h-3/4 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="w-16 bg-surface-container-high neumorphic-inset rounded-full h-full relative group">
+<div class="absolute bottom-0 w-full bg-primary rounded-full h-1/2 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<div class="flex justify-between px-6 pt-6 border-t border-white/10">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter">Jan</span>
+<span class="text-xs font-bold text-outline uppercase tracking-tighter">Feb</span>
+<span class="text-xs font-bold text-outline uppercase tracking-tighter">Mar</span>
+<span class="text-xs font-bold text-outline uppercase tracking-tighter">Apr</span>
+<span class="text-xs font-bold text-outline uppercase tracking-tighter">May</span>
+<span class="text-xs font-bold text-outline uppercase tracking-tighter">Jun</span>
+<span class="text-xs font-bold text-outline uppercase tracking-tighter">Jul</span>
+</div>
+</div>
+</section>
+<!-- Recent Predictions List -->
+<section class="space-y-6">
+<div class="neumorphic-extruded p-8 rounded-lg h-full">
+<h2 class="text-xl font-bold text-on-surface mb-8">Recent Predictions</h2>
+<div class="space-y-4" id="dashboard-recent-list">
+<!-- Row 1 -->
+<div class="neumorphic-inset p-4 rounded-xl flex items-center justify-between border border-white/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden neumorphic-extruded flex items-center justify-center bg-white">
+<img alt="" class="w-8 h-8 object-contain" data-alt="minimalist tech company logo with clean geometric lines on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjAbhEYmIS2POTq-1X8mRrFCHavQCipCZAbzKMy7lq4LD08skdPNk7XAHtSUErfMv3cgNVL2WEEy-2oLUlO4RYyvZusLQC118DRKbtDPSEYJLsAugJ-lqnVpJgkq8GVquasGH6zSTe2q1o3P3RY1j8_wivFEIKFgYPFeFc7X1BLIvRGHfAVSittdhR_Tco675gw3F9G8krKQNYS4_OGjOV-RawtuVopfrU0ljlmj8VzN6hC9ejwJJQMohfp8LMKSZIe6ST4xCRt0M"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">CloudScale AI</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">Tech / AI</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+84%</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">High Conf.</p>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="neumorphic-inset p-4 rounded-xl flex items-center justify-between border border-white/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden neumorphic-extruded flex items-center justify-center bg-white">
+<img alt="" class="w-8 h-8 object-contain" data-alt="circular health tech icon with organic shapes in soft blue and green" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjY9hOmO0lCUyzQZFuEPjae8s49zLNtMjnPOLzqPXOiQv03DefeR-rfYD8lGAxxfOY1HLGwBkX3LlPlvyKDyauDxyCl4hjUpPHBGBwi9WPwQq950Jp_ROwwVYBTfKt884Czb4cWveTZ4Rb928HXGg3CP363A64e8o06DMof1B7tc_nF6ML97h2hLB4yeZKzutxLwQBbc_HHioVJwkfOmmD1GAdFdenpEOQFIpiiJZCbx6CiyFMGlUYXQ8UhmpaXKmkHZTp197f7NI"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">BioPulse Health</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">Healthcare</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface-variant">+12%</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">Med Conf.</p>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="neumorphic-inset p-4 rounded-xl flex items-center justify-between border border-white/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden neumorphic-extruded flex items-center justify-center bg-white">
+<img alt="" class="w-8 h-8 object-contain" data-alt="modern skyscraper silhouette simplified into a luxury corporate emblem" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbtloYgRH9S1EHebDKwQ5Qse6hwT_5WdWXLN0Aqb-NFmFJChjqLGYLlaEOOOLgI8VHgUkRwb0zPBdT3jmirF4WKXpjJYJ6GY6eZF1eTP91zvtdh9VIq-PiIrajQZcGWV1b7QbDgXAJqaYc2B6BGtsuz_tOF36m6bChWRPFcxMpfO2Kuf4g6Y2kL6tHy0wrLSHZXdJaH5QSE5fA5viox0OE8upLOsxl3_2ZCR7fvKEfZaZwh5xRJVg-vCl3b_LuSYl5W1hcQd6oEos"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Skyline Realty</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">Real Estate</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-error">-5%</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">Bearish</p>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="neumorphic-inset p-4 rounded-xl flex items-center justify-between border border-white/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden neumorphic-extruded flex items-center justify-center bg-white">
+<img alt="" class="w-8 h-8 object-contain" data-alt="abstract circular fintech icon using bold purple and blue shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY5rcsI-A_QboZaFnnRFLVmGxrS1ZqFSQajSrx8K_8PElPed6kXdICgbjKfJRplqcOK7uT4i4A_GxlIchR8CjSx_EajFNIlWLcigdcGWBNnhu-qVtxSCnKn9gFrBQVr2_4AB6kngyQs6RD4CSmL_cHR_90bwqk6bTspP51QMjeIvFV91AZNDXHxZss6MeexunBYHYMacYrRsZqXkIkEHQFxyfb_m5wxdMmGKmkhrklbCwq5kiuNsv0pKt2VV4suS0bP5xKeqTTm3g"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">FinFlow Pro</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">Fintech</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">+56%</p>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">High Conf.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 neumorphic-extruded rounded-xl font-bold text-outline hover:text-primary transition-colors text-sm uppercase tracking-widest" id="dashboard-retry" type="button">Retry</button>
+</div>
+</section>
+</div>
+<!-- Footer / Action Area -->
+<footer class="mt-12 flex flex-col md:flex-row items-center justify-between gap-8 py-8 px-10 neumorphic-inset rounded-xl">
+<div class="flex items-center gap-6">
+<div class="p-4 neumorphic-extruded rounded-full bg-primary">
+<span class="material-symbols-outlined text-white">bolt</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Ready to find your next gain?</h4>
+<p class="text-sm text-outline">Our models are updated every 15 minutes with the latest Grey Market Premium data.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="neumorphic-extruded px-6 py-2 rounded-lg text-sm font-bold hover:text-primary transition-all">Export Data</button>
+<button class="bg-primary text-white px-8 py-2 rounded-lg font-bold shadow-[0_4px_10px_rgba(77,68,227,0.3)]">Set Alerts</button>
+</div>
+</footer>
+</main>
+<script id="stitch-nav-routing">
+  (function () {
+    var routeMap = {
+      dashboard: "/stitch/dashboard.html",
+      "market analysis": "/stitch/insights.html",
+      analysis: "/stitch/model-comparison.html",
+      insights: "/stitch/insights.html",
+      portfolio: "/stitch/history.html",
+      "portfolio history": "/stitch/history.html",
+      history: "/stitch/history.html",
+      watchlist: "/stitch/about.html",
+      "about us": "/stitch/about.html",
+      about: "/stitch/about.html",
+      predict: "/stitch/predict-ipo.html",
+      "predict now": "/stitch/predict-ipo.html",
+      "predict ipo": "/stitch/predict-ipo.html"
+    };
+
+    var anchors = document.querySelectorAll('a[href="#"]');
+    anchors.forEach(function (anchor) {
+      var text = (anchor.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+      if (!text) {
+        return;
+      }
+
+      var target = routeMap[text];
+      if (!target) {
+        Object.keys(routeMap).some(function (key) {
+          if (text.indexOf(key) !== -1) {
+            target = routeMap[key];
+            return true;
+          }
+          return false;
+        });
+      }
+
+      if (target) {
+        anchor.setAttribute("href", target);
+      }
+    });
+  })();
+</script>
+<script id="dashboard-hero-routing">
+  (function () {
+    var analysisBtn = document.getElementById("dashboard-analysis-btn");
+    var methodologyBtn = document.getElementById("dashboard-methodology-btn");
+
+    function navigateTo(target) {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: "stitch:navigate", href: target }, "*");
+        return;
+      }
+
+      window.location.href = target;
+    }
+
+    if (analysisBtn) {
+      analysisBtn.addEventListener("click", function () {
+        navigateTo("/insights");
+      });
+    }
+
+    if (methodologyBtn) {
+      methodologyBtn.addEventListener("click", function () {
+        navigateTo("/model-comparison");
+      });
+    }
+  })();
+</script>
+<script id="dashboard-api-wiring">
+  (function () {
+    var backendBase = window.IPO_API_BASE_URL || "http://localhost:8000";
+
+    var statusBox = document.getElementById("dashboard-status");
+    var totalEl = document.getElementById("dashboard-total-predictions");
+    var avgEl = document.getElementById("dashboard-avg-gain");
+    var bestEl = document.getElementById("dashboard-best-model");
+    var bestBadgeEl = document.getElementById("dashboard-best-model-badge");
+    var gainEl = document.getElementById("dashboard-recent-gain");
+    var categoryEl = document.getElementById("dashboard-recent-category");
+    var recentList = document.getElementById("dashboard-recent-list");
+    var retryBtn = document.getElementById("dashboard-retry");
+
+    function setStatus(message, tone) {
+      if (!statusBox) {
+        return;
+      }
+
+      if (!message) {
+        statusBox.classList.add("hidden");
+        statusBox.textContent = "";
+        return;
+      }
+
+      statusBox.textContent = message;
+      statusBox.classList.remove("hidden", "text-error", "text-outline");
+      statusBox.classList.add(tone === "error" ? "text-error" : "text-outline");
+    }
+
+    function setSkeleton(isLoading) {
+      [totalEl, avgEl, bestEl, gainEl].forEach(function (el) {
+        if (!el) {
+          return;
+        }
+
+        el.classList.toggle("animate-pulse", isLoading);
+        if (isLoading) {
+          el.textContent = "...";
+        }
+      });
+    }
+
+    function formatGain(value) {
+      var n = Number(value || 0);
+      var sign = n >= 0 ? "+" : "";
+      return sign + n.toFixed(2) + "%";
+    }
+
+    function renderRecent(item) {
+      if (!recentList) {
+        return;
+      }
+
+      if (!item) {
+        recentList.innerHTML = '<div class="neumorphic-inset p-4 rounded-xl text-sm text-outline">No data available</div>';
+        return;
+      }
+
+      var gain = Number(item.gain || 0);
+      var gainClass = gain >= 0 ? "text-primary" : "text-error";
+      recentList.innerHTML =
+        '<div class="neumorphic-inset p-4 rounded-xl flex items-center justify-between border border-white/50">' +
+        '<div><p class="text-sm font-bold text-on-surface">Latest Prediction</p><p class="text-[10px] text-outline font-medium tracking-widest uppercase">Real-time</p></div>' +
+        '<div class="text-right"><p class="text-sm font-bold ' + gainClass + '">' + formatGain(gain) + '</p><p class="text-[10px] text-outline font-medium tracking-widest uppercase">' + (item.category || "N/A") + '</p></div>' +
+        '</div>';
+    }
+
+    async function loadDashboard() {
+      setSkeleton(true);
+      setStatus("Loading...", "info");
+
+      try {
+        var response = await fetch(backendBase + "/dashboard");
+        var data = await response.json();
+
+        if (!response.ok) {
+          setStatus((data && data.error) ? data.error : "Failed to load dashboard data", "error");
+          renderRecent(null);
+          return;
+        }
+
+        var total = Number(data.total_predictions || 0);
+        if (totalEl) {
+          totalEl.textContent = String(total);
+        }
+        if (avgEl) {
+          avgEl.textContent = formatGain(Number(data.avg_gain || 0));
+        }
+        if (bestEl) {
+          bestEl.textContent = data.best_model || "N/A";
+        }
+        if (bestBadgeEl) {
+          bestBadgeEl.textContent = data.best_model || "N/A";
+        }
+
+        var recent = data.recent_prediction || null;
+        if (gainEl) {
+          gainEl.textContent = recent ? formatGain(recent.gain) : "--";
+        }
+        if (categoryEl) {
+          categoryEl.textContent = recent && recent.category ? recent.category : "No data";
+        }
+        renderRecent(recent);
+
+        if (!total) {
+          setStatus("No data available", "info");
+        } else {
+          setStatus("", "info");
+        }
+      } catch (error) {
+        setStatus("Unable to load dashboard data. Please retry.", "error");
+        renderRecent(null);
+      } finally {
+        setSkeleton(false);
+      }
+    }
+
+    if (retryBtn) {
+      retryBtn.addEventListener("click", function () {
+        loadDashboard();
+      });
+    }
+
+    loadDashboard();
+  })();
+</script>
+<script src="/stitch/bridge.js"></script>
+</body></html>

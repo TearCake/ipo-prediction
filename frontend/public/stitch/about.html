@@ -1,0 +1,334 @@
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#d2e5f7",
+            "tertiary-fixed-dim": "#c4cbe9",
+            "secondary-fixed-dim": "#d7d3d8",
+            "on-primary-container": "#3f33d6",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#403f43",
+            "primary-dim": "#4034d7",
+            "surface-container": "#e4effc",
+            "background": "#f6f9ff",
+            "on-primary": "#faf6ff",
+            "secondary-dim": "#545256",
+            "primary-fixed": "#e2dfff",
+            "inverse-surface": "#090f14",
+            "on-tertiary-container": "#444c65",
+            "on-error": "#fff7f7",
+            "on-tertiary-fixed": "#323951",
+            "inverse-primary": "#8582ff",
+            "primary-fixed-dim": "#d2d0ff",
+            "on-surface": "#233442",
+            "primary": "#4d44e3",
+            "on-secondary-fixed-variant": "#5c5b5f",
+            "outline-variant": "#a2b4c5",
+            "tertiary-fixed": "#d2d9f8",
+            "on-tertiary-fixed-variant": "#4e556f",
+            "error-dim": "#4f0116",
+            "tertiary": "#575e78",
+            "secondary-fixed": "#e5e1e6",
+            "on-tertiary": "#faf8ff",
+            "tertiary-container": "#d2d9f8",
+            "on-surface-variant": "#506170",
+            "inverse-on-surface": "#989da4",
+            "surface-bright": "#f6f9ff",
+            "secondary": "#605e62",
+            "surface-container-high": "#dbeaf9",
+            "primary-container": "#e2dfff",
+            "error-container": "#ff8b9a",
+            "on-primary-fixed-variant": "#4a40e0",
+            "surface-dim": "#c7ddf2",
+            "on-error-container": "#782232",
+            "on-primary-fixed": "#2a13c5",
+            "on-secondary": "#fcf8fc",
+            "on-secondary-container": "#525155",
+            "surface-container-low": "#ecf4fe",
+            "surface-tint": "#4d44e3",
+            "tertiary-dim": "#4b526c",
+            "surface-variant": "#d2e5f7",
+            "outline": "#6b7d8d",
+            "on-background": "#233442",
+            "surface": "#f6f9ff",
+            "secondary-container": "#e5e1e6",
+            "error": "#9e3f4e"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #f6f9ff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .neumorphic-extruded {
+      box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.8), 6px 6px 12px rgba(35, 52, 66, 0.08);
+    }
+    .neumorphic-inset {
+      box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(35, 52, 66, 0.08);
+    }
+    .neumorphic-btn-hover:hover {
+      box-shadow: inset -3px -3px 7px rgba(255, 255, 255, 0.7), inset 3px 3px 7px rgba(35, 52, 66, 0.1);
+      transform: scale(0.98);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center max-w-screen-2xl mx-auto bg-[#F6F9FF] dark:bg-[#0F172A] px-6 py-4 shadow-[-6px_-6px_12px_rgba(255,255,255,0.8),6px_6px_12px_rgba(35,52,66,0.08)]">
+<div class="flex items-center gap-2">
+<span class="text-xl font-extrabold tracking-tighter text-[#233442] dark:text-white uppercase">IPO Insight</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#233442] dark:text-slate-400 opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all px-3 py-1 rounded-lg" href="#">Market Analysis</a>
+<a class="text-[#233442] dark:text-slate-400 opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all px-3 py-1 rounded-lg" href="#">Portfolio</a>
+<a class="text-[#4D44E3] font-bold border-b-2 border-[#4D44E3] font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">About Us</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="neumorphic-inset px-4 py-2 rounded-full flex items-center gap-2 bg-surface-container-low">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 md:w-48 placeholder-outline-variant" placeholder="Search IPOs..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant p-2 rounded-full neumorphic-extruded neumorphic-btn-hover">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 rounded-full neumorphic-extruded neumorphic-btn-hover">account_circle</button>
+</div>
+</header>
+<main class="pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-24">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-6">
+<span class="inline-block px-4 py-1.5 rounded-full neumorphic-extruded text-[10px] font-bold uppercase tracking-[0.2em] text-primary bg-surface">Precision Intelligence</span>
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface leading-tight">
+          Making IPO <br/> <span class="text-primary italic">Analysis</span> Simple
+        </h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-lg">
+          We help users estimate IPO listing performance using machine learning models trained on historical subscription data.
+        </p>
+<p class="text-base text-on-surface-variant leading-relaxed max-w-lg">
+          This project predicts IPO listing gain based on subscription data such as QIB, HNI, and retail participation.
+        </p>
+</div>
+<div class="relative">
+<div class="neumorphic-extruded rounded-xl overflow-hidden aspect-square rotate-3 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="Modern high-tech architectural building facade with clean glass lines and soft blue hour lighting reflecting technological precision" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS5xO1ci-z_uNJWvZPLznssZ78MI4wLvxVk07UxigIwUVEdBf-Apu7lP2rhbt8etd74u3DqWLweoZI0P3AZzeZP7n1SFpBjVTRKvdsNBNtQuryMqKL2WojuUN38A7BctjjWt9dSV8HRB-0Kc6gDs2ObjG6X1LdPi4x66XebjJoOgmroVSZ9cfsA6Cgwm7FYvrks5pECmScRLK2GpE2K7f-Z7jUom0ZUCiQO5g4DPN5pbxGWPBv782YuON4JosL-3n4f3wJ8OQMkQo"/>
+</div>
+<div class="absolute -bottom-8 -left-8 neumorphic-extruded bg-surface p-6 rounded-lg hidden md:block max-w-xs">
+<p class="text-sm font-semibold italic text-primary">"The future of finance is not just digital, it's tactile. We want our data to be felt."</p>
+<p class="text-xs mt-2 text-outline">— IPO Insight Project Team</p>
+</div>
+</div>
+</section>
+<!-- Project Mission & Tech Stack (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Mission Card -->
+<div class="md:col-span-2 neumorphic-extruded bg-surface p-10 rounded-lg flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 neumorphic-inset rounded-full flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flag</span>
+</div>
+<h3 class="text-3xl font-bold mb-4">Our Core Mission</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+            Our goal is to make IPO analysis more accessible by using machine learning to estimate listing gains based on demand patterns.
+          </p>
+</div>
+<div class="mt-8 pt-8 border-t border-surface-container flex gap-12">
+<div>
+<div class="text-2xl font-black text-primary">Historical IPO Dataset</div>
+<div class="text-[10px] uppercase tracking-widest text-outline font-bold">Dataset of historical IPOs</div>
+</div>
+<div>
+<div class="text-2xl font-black text-primary">MAE and R²</div>
+<div class="text-[10px] uppercase tracking-widest text-outline font-bold">Model evaluated using MAE and R²</div>
+</div>
+</div>
+</div>
+<!-- Tech Stack Card -->
+<div class="neumorphic-extruded bg-surface p-10 rounded-lg space-y-8">
+<h3 class="text-xl font-bold uppercase tracking-widest">Tech Stack</h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 group">
+<div class="w-10 h-10 neumorphic-inset rounded-lg flex items-center justify-center group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">api</span>
+</div>
+<span class="font-medium text-sm">Frontend: Next.js + Tailwind CSS</span>
+</li>
+<li class="flex items-center gap-4 group">
+<div class="w-10 h-10 neumorphic-inset rounded-lg flex items-center justify-center group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<span class="font-medium text-sm">Backend: FastAPI</span>
+</li>
+<li class="flex items-center gap-4 group">
+<div class="w-10 h-10 neumorphic-inset rounded-lg flex items-center justify-center group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<span class="font-medium text-sm">ML Models: Random Forest, CatBoost, Gradient Boosting</span>
+</li>
+<li class="flex items-center gap-4 group">
+<div class="w-10 h-10 neumorphic-inset rounded-lg flex items-center justify-center group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">security</span>
+</div>
+<span class="font-medium text-sm">Data Processing: Pandas, NumPy</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Team Members -->
+<section class="space-y-12">
+<div class="text-center">
+<h2 class="text-4xl font-extrabold tracking-tight mb-4">Architects of Precision</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Student project developed as part of an ML specialization.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Team Card 1 -->
+<div class="group">
+<div class="neumorphic-extruded p-4 rounded-xl bg-surface transition-transform duration-300 group-hover:-translate-y-2">
+<div class="aspect-[3/4] rounded-lg overflow-hidden neumorphic-inset mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Professional man in a tailored charcoal suit against a minimalist light gray studio background with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCznpi0tfy6lzMGMPah8cVgNyxdBKk1Dqwa3j5MoO8yTN2zarClL5MPVPIkHmLOCzmIXGTIpO_kP0NcjvbfTLAbvJMYOEjdcZKmQUOJESvM3ws_9Wsza0sF06xKY8adLinONLxo-_h9RfLgpp38TyGwDPzfM41-6i1-pu4QaZQihk8K3RJgt5s-riWf_xvAI_Yh6LwmwztGxaOwG8eRsCj2SAmTlXv14rWIsZTEPvX1ifsre-sVXK7TlS_4Ud_qE-rOspjrkJrO0uM"/>
+</div>
+<div class="text-center pb-2">
+<h4 class="font-bold text-lg">Student Project</h4>
+<p class="text-[10px] uppercase tracking-[0.15em] text-outline font-bold">ML Specialization</p>
+</div>
+</div>
+</div>
+<!-- Team Card 2 -->
+<div class="group">
+<div class="neumorphic-extruded p-4 rounded-xl bg-surface transition-transform duration-300 group-hover:-translate-y-2">
+<div class="aspect-[3/4] rounded-lg overflow-hidden neumorphic-inset mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Confident woman executive with a warm smile in a modern office setting with soft bokeh background and clean lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu5lQwPuCa68huVH3jHFYTrTTIAfpARQGtdeu0I20ydqwFf7R2-QixN06pqEijizMcmRlkPEkjQPu-gzGtqQjXpQxZnmliUjpVfkAU2UUuhHb6ATiQi6g-Qutxlpkm3K8co78flJbpzn4lcWMkE7pOVhaI3X3YdTUFmU8JkQ2w6ezcpi8oAmzkhnhbBCcjRq2Arm11BggwjIjvSeeG3NFMkW9riU5KYRicfq_qS15jF1Y9nQfji0_mMK3SpOj65Dn3aLrINUCKq3k"/>
+</div>
+<div class="text-center pb-2">
+<h4 class="font-bold text-lg">Developer</h4>
+<p class="text-[10px] uppercase tracking-[0.15em] text-outline font-bold">Application Development</p>
+</div>
+</div>
+</div>
+<!-- Team Card 3 -->
+<div class="group">
+<div class="neumorphic-extruded p-4 rounded-xl bg-surface transition-transform duration-300 group-hover:-translate-y-2">
+<div class="aspect-[3/4] rounded-lg overflow-hidden neumorphic-inset mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Portrait of a young creative professional man in a casual navy sweater with natural light from a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDScW7pptpuWNIJCDPN5ASuEsgiZfwKHW1ZC56G2OYSRtTxwyDRoeFnMo3YGtIzyHLlnPl3FK-yFoloIamf0oSjOJdTkiAx6a7yM2TPC_BWBNrYRA-Rp3fNo39u8n539lOdcLDnK4T2xkiria86vlI33DCayJCqcMKYjVJCgUg69S_tU3guM8WHHpNIdtA-hNygg7HoURkieXg1Li6EX-zgIUiZZVbhSccmWNlADsjx5sA1Vr82G_fd4lv6Mi1zMmLV-HWDIHAcf-Y"/>
+</div>
+<div class="text-center pb-2">
+<h4 class="font-bold text-lg">ML Engineer</h4>
+<p class="text-[10px] uppercase tracking-[0.15em] text-outline font-bold">Model Training &amp; Evaluation</p>
+</div>
+</div>
+</div>
+<!-- Team Card 4 -->
+<div class="group">
+<div class="neumorphic-extruded p-4 rounded-xl bg-surface transition-transform duration-300 group-hover:-translate-y-2">
+<div class="aspect-[3/4] rounded-lg overflow-hidden neumorphic-inset mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Professional woman in business attire with glasses looking thoughtfully towards the side in a bright minimalist room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm_jAxNCJzJtC_KL9bWTopr9UMdOG4XMMnY7J52J-oJu4EQLeHkrEZIvg6ivA2idJeRNbAjsXUfB9jyyUn6u1SGZpfjbu--Vcuv1_MhEs04uyF-OIUicPUrbWDSRkt0e0LzxbhaXDXDAVYPDkgPp4Zz3agIlwRhYkd4JD75wxD-FVfDsnT3ieAmwbxWkI6cgo6W2iB8bpwvVHWG5cJqkkAH-ejGGM8L9-oca2nReI14LtmEqC7lUD6A-Y9lXbAtPh-6YIJD3WjxkI"/>
+</div>
+<div class="text-center pb-2">
+<h4 class="font-bold text-lg">UI Designer</h4>
+<p class="text-[10px] uppercase tracking-[0.15em] text-outline font-bold">Interface &amp; UX</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Financial Disclaimer Inset Box -->
+<section class="max-w-4xl mx-auto">
+<div class="neumorphic-inset bg-surface-container-low p-8 md:p-12 rounded-xl flex items-start gap-6 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0" style="font-variation-settings: 'FILL' 1;">info</span>
+<div class="space-y-4">
+<h4 class="text-sm font-black uppercase tracking-[0.2em] text-on-surface">Institutional Disclaimer</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+            This tool provides predictions based on historical data and should not be considered financial advice.
+          </p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface py-12 px-6 border-t border-surface-container">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<div class="text-xl font-extrabold tracking-tighter text-[#233442] mb-2 uppercase">IPO Insight</div>
+<p class="text-xs text-outline font-medium tracking-widest uppercase">The Analytical Monolith © 2024</p>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 neumorphic-extruded rounded-full flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+</button>
+<button class="w-10 h-10 neumorphic-extruded rounded-full flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">language</span>
+</button>
+<button class="w-10 h-10 neumorphic-extruded rounded-full flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">shield</span>
+</button>
+</div>
+</div>
+</footer>
+<!-- SideNavBar Suppression Case: Using TopNavBar only as per About page navigation flow requirements -->
+<script id="stitch-nav-routing">
+  (function () {
+    var routeMap = {
+      dashboard: "/stitch/dashboard.html",
+      "market analysis": "/stitch/insights.html",
+      analysis: "/stitch/model-comparison.html",
+      insights: "/stitch/insights.html",
+      portfolio: "/stitch/history.html",
+      "portfolio history": "/stitch/history.html",
+      history: "/stitch/history.html",
+      watchlist: "/stitch/about.html",
+      "about us": "/stitch/about.html",
+      about: "/stitch/about.html",
+      predict: "/stitch/predict-ipo.html",
+      "predict now": "/stitch/predict-ipo.html",
+      "predict ipo": "/stitch/predict-ipo.html"
+    };
+
+    var anchors = document.querySelectorAll('a[href="#"]');
+    anchors.forEach(function (anchor) {
+      var text = (anchor.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+      if (!text) {
+        return;
+      }
+
+      var target = routeMap[text];
+      if (!target) {
+        Object.keys(routeMap).some(function (key) {
+          if (text.indexOf(key) !== -1) {
+            target = routeMap[key];
+            return true;
+          }
+          return false;
+        });
+      }
+
+      if (target) {
+        anchor.setAttribute("href", target);
+      }
+    });
+  })();
+</script>
+<script src="/stitch/bridge.js"></script>
+</body></html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IPO Insight | Precision Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d2e5f7",
+                    "tertiary-fixed-dim": "#c4cbe9",
+                    "secondary-fixed-dim": "#d7d3d8",
+                    "on-primary-container": "#3f33d6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#403f43",
+                    "primary-dim": "#4034d7",
+                    "surface-container": "#e4effc",
+                    "background": "#f6f9ff",
+                    "on-primary": "#faf6ff",
+                    "secondary-dim": "#545256",
+                    "primary-fixed": "#e2dfff",
+                    "inverse-surface": "#090f14",
+                    "on-tertiary-container": "#444c65",
+                    "on-tertiary-fixed": "#323951",
+                    "inverse-primary": "#8582ff",
+                    "primary-fixed-dim": "#d2d0ff",
+                    "on-surface": "#233442",
+                    "primary": "#4d44e3",
+                    "on-secondary-fixed-variant": "#5c5b5f",
+                    "outline-variant": "#a2b4c5",
+                    "tertiary-fixed": "#d2d9f8",
+                    "on-tertiary-fixed-variant": "#4e556f",
+                    "error-dim": "#4f0116",
+                    "tertiary": "#575e78",
+                    "secondary-fixed": "#e5e1e6",
+                    "on-tertiary": "#faf8ff",
+                    "tertiary-container": "#d2d9f8",
+                    "on-surface-variant": "#506170",
+                    "inverse-on-surface": "#989da4",
+                    "surface-bright": "#f6f9ff",
+                    "secondary": "#605e62",
+                    "surface-container-high": "#dbeaf9",
+                    "primary-container": "#e2dfff",
+                    "error-container": "#ff8b9a",
+                    "on-primary-fixed-variant": "#4a40e0",
+                    "surface-dim": "#c7ddf2",
+                    "on-error-container": "#782232",
+                    "on-primary-fixed": "#2a13c5",
+                    "on-secondary": "#fcf8fc",
+                    "on-secondary-container": "#525155",
+                    "surface-container-low": "#ecf4fe",
+                    "surface-tint": "#4d44e3",
+                    "tertiary-dim": "#4b526c",
+                    "surface-variant": "#d2e5f7",
+                    "outline": "#6b7d8d",
+                    "on-background": "#233442",
+                    "surface": "#f6f9ff",
+                    "secondary-container": "#e5e1e6",
+                    "error": "#9e3f4e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            },
+            "animation": {
+                "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f6f9ff;
+            color: #233442;
+        }
+        .neumorphic-extruded {
+            box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.8), 6px 6px 12px rgba(35, 52, 66, 0.08);
+        }
+        .neumorphic-inset {
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(35, 52, 66, 0.08);
+        }
+        .neumorphic-active {
+            box-shadow: inset -3px -3px 7px rgba(255, 255, 255, 0.7), inset 3px 3px 7px rgba(35, 52, 66, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-custom {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center max-w-screen-2xl mx-auto bg-[#F6F9FF] px-6 py-4 shadow-[-6px_-6px_12px_rgba(255,255,255,0.8),6px_6px_12px_rgba(35,52,66,0.08)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-[#233442]">IPO Insight</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#4D44E3] font-bold border-b-2 border-[#4D44E3] font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">Dashboard</a>
+<a class="text-[#233442] opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:opacity-100 transition-all" href="#">Market Analysis</a>
+<a class="text-[#233442] opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:opacity-100 transition-all" href="#">Portfolio</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative neumorphic-inset rounded-full px-4 py-2 flex items-center bg-surface-container-low">
+<span class="material-symbols-outlined text-outline text-sm mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm p-0 w-48 text-on-surface" placeholder="Search IPOs..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full flex items-center justify-center neumorphic-extruded hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center neumorphic-extruded hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-64 p-6 flex flex-col justify-between z-40 bg-[#F6F9FF] shadow-[6px_0px_12px_rgba(35,52,66,0.05)] pt-24 hidden lg:flex">
+<div class="space-y-8">
+<div class="flex flex-col">
+<span class="text-lg font-black text-[#233442]">IPO Insight</span>
+<span class="text-[10px] font-medium uppercase tracking-widest text-[#4D44E3]">Precision Intelligence</span>
+</div>
+<nav class="space-y-4">
+<a class="flex items-center gap-3 py-3 px-4 text-[#233442] opacity-70 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 neumorphic-active rounded-xl bg-[#F0F4F8] text-[#4D44E3] font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Market Analysis</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-[#233442] opacity-70 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Portfolio</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-[#233442] opacity-70 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span>About</span>
+</a>
+</nav>
+</div>
+<button class="w-full bg-[#4D44E3] text-white py-4 rounded-lg font-bold shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+        Predict
+    </button>
+</aside>
+<!-- Main Content -->
+<main class="pt-24 min-h-screen">
+<div class="w-full p-8">
+<!-- Page Header -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-5xl font-extrabold tracking-tight text-on-surface mb-2">IPO Predictor</h1>
+<p class="text-on-surface-variant font-medium max-w-lg">Prediction based on historical IPO subscription data and listing performance patterns.</p>
+</div>
+</div>
+<!-- Dashboard Layout: Bento Grid Style -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Prediction Form Column (7 cols) -->
+<div class="lg:col-span-7 space-y-10">
+<section class="neumorphic-extruded bg-surface rounded-lg p-10">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="analytics">analytics</span>
+<h2 class="text-xl font-bold tracking-tight">IPO Input Parameters</h2>
+</div>
+<form class="space-y-8" id="predict-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Input Field -->
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">IPO Name</label>
+<div class="neumorphic-inset bg-surface-container-low rounded-lg overflow-hidden">
+<input class="w-full bg-transparent border-none px-5 py-4 focus:ring-0 text-on-surface" id="ipo-name" placeholder="e.g. CloudPylon Systems" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">Issue Size (Cr)</label>
+<div class="neumorphic-inset bg-surface-container-low rounded-lg overflow-hidden border-2 border-transparent">
+<input class="w-full bg-transparent border-none px-5 py-4 focus:ring-0 text-on-surface" id="issue-size" min="0" placeholder="500" step="0.01" type="number"/>
+</div>
+<p class="text-[10px] text-on-surface-variant opacity-70 ml-2">IPO size in crores</p>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">QIB Subscription</label>
+<div class="neumorphic-inset bg-surface-container-low rounded-lg overflow-hidden border-2 border-transparent">
+<input class="w-full bg-transparent border-none px-5 py-4 focus:ring-0 text-on-surface" id="qib" min="0" placeholder="e.g. 45.2" step="0.01" type="number"/>
+</div>
+<p class="text-[10px] text-on-surface-variant opacity-70 ml-2">Institutional subscription multiple</p>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">HNI Subscription</label>
+<div class="neumorphic-inset bg-surface-container-low rounded-lg overflow-hidden">
+<input class="w-full bg-transparent border-none px-5 py-4 focus:ring-0 text-on-surface" id="hni" min="0" placeholder="12.5" step="0.01" type="number"/>
+</div>
+<p class="text-[10px] text-on-surface-variant opacity-70 ml-2">High net-worth individual subscription</p>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">RII Subscription</label>
+<div class="neumorphic-inset bg-surface-container-low rounded-lg overflow-hidden">
+<input class="w-full bg-transparent border-none px-5 py-4 focus:ring-0 text-on-surface" id="rii" min="0" placeholder="8.2" step="0.01" type="number"/>
+</div>
+<p class="text-[10px] text-on-surface-variant opacity-70 ml-2">Retail investor subscription</p>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">Total Subscription</label>
+<div class="neumorphic-inset bg-surface-container-low rounded-lg overflow-hidden">
+<input class="w-full bg-transparent border-none px-5 py-4 focus:ring-0 text-on-surface" id="total" min="0" placeholder="Auto-computed" readonly step="0.01" type="number"/>
+</div>
+<p class="text-[10px] text-on-surface-variant opacity-70 ml-2">Auto-calculated as QIB + HNI + RII</p>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-2">Offer Price <span class="text-[10px] lowercase opacity-60">(optional)</span></label>
+<div class="neumorphic-inset bg-surface-container-low rounded-lg overflow-hidden">
+<input class="w-full bg-transparent border-none px-5 py-4 focus:ring-0 text-on-surface" id="offer-price" min="0" placeholder="e.g. 450" step="0.01" type="number"/>
+</div>
+<p class="text-[10px] text-on-surface-variant opacity-70 ml-2">Price per share (optional, used to estimate listing price)</p>
+</div>
+<div class="pt-4">
+<button class="w-full py-5 rounded-lg bg-gradient-to-br from-primary to-primary-dim text-white font-extrabold text-lg shadow-[6px_6px_15px_rgba(77,68,227,0.3)] hover:translate-y-[-2px] active:translate-y-[1px] transition-all flex items-center justify-center gap-3 neumorphic-extruded" id="predict-submit" type="submit">
+<span class="material-symbols-outlined text-2xl" data-icon="bolt">bolt</span>
+                                Predict Listing Gain
+                            </button>
+<p class="hidden text-sm font-semibold mt-3" id="predict-feedback"></p>
+</div>
+</form>
+</section>
+<!-- Tactical Cards Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="neumorphic-extruded bg-surface rounded-lg p-6">
+<span class="material-symbols-outlined text-primary mb-4 p-3 neumorphic-inset rounded-full inline-block" data-icon="monitoring">monitoring</span>
+<h3 class="font-bold text-lg mb-2">Subscription Insight</h3>
+<p class="text-sm text-on-surface-variant">Higher QIB and total subscription levels typically indicate stronger listing demand.</p>
+</div>
+<div class="neumorphic-extruded bg-surface rounded-lg p-6">
+<span class="material-symbols-outlined text-primary mb-4 p-3 neumorphic-inset rounded-full inline-block" data-icon="account_balance">account_balance</span>
+<h3 class="font-bold text-lg mb-2">Subscription Strength</h3>
+<p class="text-sm text-on-surface-variant">High QIB subscription often correlates with institutional confidence and strong secondary market debuts.</p>
+</div>
+</div>
+</div>
+<!-- Results Sidebar (5 cols) -->
+<div class="lg:col-span-5">
+<div class="sticky top-32 space-y-10">
+<!-- Prediction Score Card -->
+<section class="neumorphic-extruded bg-surface rounded-lg p-10 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-surface-container-highest opacity-50 text-8xl rotate-12" data-icon="trending_up">trending_up</span>
+</div>
+<span class="text-xs font-black uppercase tracking-widest text-primary block mb-6">Predicted Listing Gain (%)</span>
+<div class="relative w-48 h-48 mx-auto mb-8 flex items-center justify-center">
+<!-- Neumorphic Circle Ring -->
+<div class="absolute inset-0 rounded-full neumorphic-inset"></div>
+<div class="relative z-10 flex flex-col items-center">
+<span class="text-6xl font-black text-on-surface tracking-tighter" id="predicted-gain">+0.00<span class="text-2xl">%</span></span>
+<span class="text-[10px] font-bold uppercase text-primary" id="predicted-subtitle">Enter values and run prediction</span>
+</div>
+<!-- Progress Indicator -->
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-primary/10" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary drop-shadow-[0_0_8px_rgba(77,68,227,0.5)]" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552" stroke-dashoffset="120" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="neumorphic-inset rounded-lg p-4 bg-surface-container-low">
+<span class="block text-[10px] font-bold uppercase text-on-surface-variant mb-1">Listing Price</span>
+<span class="text-xl font-bold text-on-surface" id="predicted-listing-price">N/A</span>
+</div>
+<div class="neumorphic-inset rounded-lg p-4 bg-surface-container-low">
+<span class="block text-[10px] font-bold uppercase text-on-surface-variant mb-1">Gain Category</span>
+<span class="text-xl font-bold text-primary" id="predicted-category">N/A</span>
+</div>
+</div>
+<!-- Explanation Box -->
+<div class="neumorphic-inset bg-surface-container-low rounded-lg p-6 text-left">
+<h4 class="text-sm font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="info">info</span>
+                                Why this prediction?
+                            </h4>
+<p class="text-xs text-on-surface-variant leading-relaxed" id="predicted-explanation">Prediction explanation will appear here after you submit inputs.</p>
+</div>
+</section>
+<!-- Market Insight Bento Card -->
+<section class="neumorphic-extruded bg-surface rounded-lg p-8">
+<div class="mb-6">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+                                Model Confidence
+                            </h3>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider mt-1">Based on historical model performance (R² score)</p>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+<span>Model Confidence</span>
+<span>88%</span>
+</div>
+<div class="h-3 neumorphic-inset bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full w-[88%] bg-primary rounded-full shadow-[0_0_10px_rgba(77,68,227,0.3)]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Decorative Ad/Insight -->
+<div class="rounded-lg h-32 overflow-hidden relative group cursor-pointer shadow-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="high-tech abstract representation of global financial networks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_3_O-kOj9LaJ6rHYVByr1pA2bKSwFC22lf0LVq7A_-wAHyBegGCTgng4hrR5gyPgSumZsXO9A4-trJEn8re9AC7orWS4IGYRt85rcMr9DNj8PzTN1_BiJ6yxOl-XKkSdDdugSw382YgN4ohjb508ju0s5dRUu9_VXsjJ4trCdk9AQUdEs-Ga7YORHU5s2SnYZzI8gaPIQjvf1StuvrVSmdlSC7QABhB65Sjsh9gequYagsvUStDVmkpcQmVyGN7XU4IVQ26AaCPs"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center p-8">
+<div class="text-white">
+<span class="text-[10px] font-black uppercase tracking-[0.2em] opacity-80">Industry Report</span>
+<h4 class="text-lg font-bold">Historical Listing Gain Patterns</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Action for Mobile -->
+<div class="md:hidden fixed bottom-6 right-6 z-50">
+<button class="w-16 h-16 rounded-full bg-primary text-white shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Shared Component - Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-[#F6F9FF] flex justify-around items-center py-4 z-50 shadow-[0_-6px_12px_rgba(35,52,66,0.05)]">
+<button class="flex flex-col items-center gap-1 text-[#4D44E3]">
+<span class="material-symbols-outlined" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-[10px] font-bold uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#233442] opacity-50">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-[10px] font-bold uppercase">Predict</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#233442] opacity-50">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase">Wallet</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#233442] opacity-50">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span class="text-[10px] font-bold uppercase">Watch</span>
+</button>
+</nav>
+<script id="stitch-nav-routing">
+    (function () {
+        var routeMap = {
+            dashboard: "/stitch/dashboard.html",
+            "market analysis": "/stitch/insights.html",
+            analysis: "/stitch/model-comparison.html",
+            insights: "/stitch/insights.html",
+            portfolio: "/stitch/history.html",
+            "portfolio history": "/stitch/history.html",
+            history: "/stitch/history.html",
+            watchlist: "/stitch/about.html",
+            "about us": "/stitch/about.html",
+            about: "/stitch/about.html",
+            predict: "/stitch/predict-ipo.html",
+            "predict now": "/stitch/predict-ipo.html",
+            "predict ipo": "/stitch/predict-ipo.html"
+        };
+
+        var anchors = document.querySelectorAll('a[href="#"]');
+        anchors.forEach(function (anchor) {
+            var text = (anchor.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+            if (!text) {
+                return;
+            }
+
+            var target = routeMap[text];
+            if (!target) {
+                Object.keys(routeMap).some(function (key) {
+                    if (text.indexOf(key) !== -1) {
+                        target = routeMap[key];
+                        return true;
+                    }
+                    return false;
+                });
+            }
+
+            if (target) {
+                anchor.setAttribute("href", target);
+            }
+        });
+    })();
+</script>
+<script id="predict-api-wiring">
+    (function () {
+        var form = document.getElementById("predict-form");
+        if (!form) {
+            return;
+        }
+
+        var backendBase = window.IPO_API_BASE_URL || "http://localhost:8000";
+
+        var issueSizeInput = document.getElementById("issue-size");
+        var ipoNameInput = document.getElementById("ipo-name");
+        var qibInput = document.getElementById("qib");
+        var hniInput = document.getElementById("hni");
+        var riiInput = document.getElementById("rii");
+        var totalInput = document.getElementById("total");
+        var offerPriceInput = document.getElementById("offer-price");
+
+        var submitButton = document.getElementById("predict-submit");
+        var feedback = document.getElementById("predict-feedback");
+
+        var gainOutput = document.getElementById("predicted-gain");
+        var subtitleOutput = document.getElementById("predicted-subtitle");
+        var listingPriceOutput = document.getElementById("predicted-listing-price");
+        var categoryOutput = document.getElementById("predicted-category");
+        var explanationOutput = document.getElementById("predicted-explanation");
+
+        function toNumber(value) {
+            if (value === null || value === undefined || value === "") {
+                return null;
+            }
+
+            var parsed = Number(value);
+            return Number.isFinite(parsed) ? parsed : null;
+        }
+
+        function setFeedback(message, isError) {
+            if (!feedback) {
+                return;
+            }
+
+            if (!message) {
+                feedback.textContent = "";
+                feedback.classList.add("hidden");
+                return;
+            }
+
+            feedback.textContent = message;
+            feedback.classList.remove("hidden");
+            feedback.classList.toggle("text-error", !!isError);
+            feedback.classList.toggle("text-primary", !isError);
+        }
+
+        function setLoading(isLoading) {
+            if (!submitButton) {
+                return;
+            }
+
+            submitButton.disabled = isLoading;
+            submitButton.classList.toggle("opacity-70", isLoading);
+            submitButton.classList.toggle("cursor-not-allowed", isLoading);
+
+            if (isLoading) {
+                submitButton.innerHTML = '<span class="material-symbols-outlined animate-spin-custom text-2xl" data-icon="progress_activity">progress_activity</span>Predicting Listing Gain...';
+            } else {
+                submitButton.innerHTML = '<span class="material-symbols-outlined text-2xl" data-icon="bolt">bolt</span>Predict Listing Gain';
+            }
+        }
+
+        function formatPercent(value) {
+            var sign = value >= 0 ? "+" : "";
+            return sign + value.toFixed(2) + '<span class="text-2xl">%</span>';
+        }
+
+        function formatPrice(value) {
+            if (value === null || value === undefined || !Number.isFinite(value)) {
+                return "N/A";
+            }
+
+            return "INR " + value.toFixed(2);
+        }
+
+        function syncComputedTotal() {
+            var qib = toNumber(qibInput && qibInput.value);
+            var hni = toNumber(hniInput && hniInput.value);
+            var rii = toNumber(riiInput && riiInput.value);
+
+            if (qib === null || hni === null || rii === null) {
+                if (totalInput) {
+                    totalInput.value = "";
+                }
+                return null;
+            }
+
+            var computed = qib + hni + rii;
+            if (totalInput) {
+                totalInput.value = computed.toFixed(4);
+            }
+            return computed;
+        }
+
+        function validateInputs(showMessage) {
+            var issueSize = toNumber(issueSizeInput && issueSizeInput.value);
+            var qib = toNumber(qibInput && qibInput.value);
+            var hni = toNumber(hniInput && hniInput.value);
+            var rii = toNumber(riiInput && riiInput.value);
+            var total = syncComputedTotal();
+            var offerPrice = toNumber(offerPriceInput && offerPriceInput.value);
+
+            var requiredValues = [
+                { label: "Issue Size", value: issueSize },
+                { label: "QIB", value: qib },
+                { label: "HNI", value: hni },
+                { label: "RII", value: rii }
+            ];
+
+            for (var i = 0; i < requiredValues.length; i += 1) {
+                if (requiredValues[i].value === null) {
+                    if (showMessage) {
+                        setFeedback(requiredValues[i].label + " is required and must be numeric.", true);
+                    }
+                    return null;
+                }
+
+                if (requiredValues[i].value < 0) {
+                    if (showMessage) {
+                        setFeedback(requiredValues[i].label + " cannot be negative.", true);
+                    }
+                    return null;
+                }
+            }
+
+            if (offerPrice !== null && offerPrice < 0) {
+                if (showMessage) {
+                    setFeedback("Offer Price cannot be negative.", true);
+                }
+                return null;
+            }
+
+            return {
+                issueSize: issueSize,
+                qib: qib,
+                hni: hni,
+                rii: rii,
+                total: total,
+                offerPrice: offerPrice
+            };
+        }
+
+        [issueSizeInput, qibInput, hniInput, riiInput, offerPriceInput].forEach(function (input) {
+            if (!input) {
+                return;
+            }
+
+            input.addEventListener("input", function () {
+                var validState = validateInputs(false);
+                if (validState) {
+                    setFeedback("", false);
+                }
+            });
+        });
+
+        syncComputedTotal();
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            setFeedback("", false);
+
+            var validState = validateInputs(true);
+            if (!validState) {
+                return;
+            }
+
+            var payload = {
+                QIB: validState.qib,
+                HNI: validState.hni,
+                RII: validState.rii,
+                Total: validState.total,
+                Issue_Size: validState.issueSize
+            };
+
+            var ipoName = (ipoNameInput && ipoNameInput.value ? ipoNameInput.value : "").trim();
+            if (ipoName) {
+                payload.IPO_Name = ipoName;
+            }
+
+            if (validState.offerPrice !== null) {
+                payload.Offer_Price = validState.offerPrice;
+            }
+
+            setLoading(true);
+
+            try {
+                var response = await fetch(backendBase + "/predict", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                var data = await response.json();
+                if (!response.ok) {
+                    var errorMessage = (data && data.error) ? data.error : "Prediction request failed.";
+                    setFeedback(errorMessage, true);
+                    return;
+                }
+
+                if (gainOutput) {
+                    gainOutput.innerHTML = formatPercent(data.predicted_gain_percent || 0);
+                }
+                if (subtitleOutput) {
+                    subtitleOutput.textContent = data.category ? data.category + " expected" : "Prediction complete";
+                }
+                if (listingPriceOutput) {
+                    listingPriceOutput.textContent = formatPrice(data.predicted_listing_price);
+                }
+                if (categoryOutput) {
+                    categoryOutput.textContent = data.category || "N/A";
+                }
+                if (explanationOutput) {
+                    explanationOutput.textContent = data.explanation || "No explanation available.";
+                }
+
+                setFeedback("Prediction generated successfully.", false);
+            } catch (error) {
+                setFeedback("Unable to reach backend. Ensure FastAPI is running on " + backendBase + ".", true);
+            } finally {
+                setLoading(false);
+            }
+        });
+    })();
+</script>
+<script src="/stitch/bridge.js"></script>
+</body></html>

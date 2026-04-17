@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Model Comparison | IPO Insight</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d2e5f7",
+                        "tertiary-fixed-dim": "#c4cbe9",
+                        "secondary-fixed-dim": "#d7d3d8",
+                        "on-primary-container": "#3f33d6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#403f43",
+                        "primary-dim": "#4034d7",
+                        "surface-container": "#e4effc",
+                        "background": "#f6f9ff",
+                        "on-primary": "#faf6ff",
+                        "secondary-dim": "#545256",
+                        "primary-fixed": "#e2dfff",
+                        "inverse-surface": "#090f14",
+                        "on-tertiary-container": "#444c65",
+                        "on-error": "#fff7f7",
+                        "on-tertiary-fixed": "#323951",
+                        "inverse-primary": "#8582ff",
+                        "primary-fixed-dim": "#d2d0ff",
+                        "on-surface": "#233442",
+                        "primary": "#4d44e3",
+                        "on-secondary-fixed-variant": "#5c5b5f",
+                        "outline-variant": "#a2b4c5",
+                        "tertiary-fixed": "#d2d9f8",
+                        "on-tertiary-fixed-variant": "#4e556f",
+                        "error-dim": "#4f0116",
+                        "tertiary": "#575e78",
+                        "secondary-fixed": "#e5e1e6",
+                        "on-tertiary": "#faf8ff",
+                        "tertiary-container": "#d2d9f8",
+                        "on-surface-variant": "#506170",
+                        "inverse-on-surface": "#989da4",
+                        "surface-bright": "#f6f9ff",
+                        "secondary": "#605e62",
+                        "surface-container-high": "#dbeaf9",
+                        "primary-container": "#e2dfff",
+                        "error-container": "#ff8b9a",
+                        "on-primary-fixed-variant": "#4a40e0",
+                        "surface-dim": "#c7ddf2",
+                        "on-error-container": "#782232",
+                        "on-primary-fixed": "#2a13c5",
+                        "on-secondary": "#fcf8fc",
+                        "on-secondary-container": "#525155",
+                        "surface-container-low": "#ecf4fe",
+                        "surface-tint": "#4d44e3",
+                        "tertiary-dim": "#4b526c",
+                        "surface-variant": "#d2e5f7",
+                        "outline": "#6b7d8d",
+                        "on-background": "#233442",
+                        "surface": "#f6f9ff",
+                        "secondary-container": "#e5e1e6",
+                        "error": "#9e3f4e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f6f9ff; }
+        .neumorphic-extruded {
+            box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.8), 6px 6px 12px rgba(35, 52, 66, 0.08);
+        }
+        .neumorphic-inset {
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(35, 52, 66, 0.08);
+        }
+        .best-performing-glow {
+            box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.8), 6px 6px 12px rgba(77, 68, 227, 0.15), 0 0 20px rgba(77, 68, 227, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center max-w-screen-2xl mx-auto bg-[#F6F9FF] dark:bg-[#0F172A] px-6 py-4 shadow-[-6px_-6px_12px_rgba(255,255,255,0.8),6px_6px_12px_rgba(35,52,66,0.08)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-[#233442] dark:text-white uppercase">IPO Insight</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#233442] dark:text-slate-400 opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all px-3 py-1 rounded-full" href="#">Overview</a>
+<a class="text-[#4D44E3] font-bold border-b-2 border-[#4D44E3] font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">Analysis</a>
+<a class="text-[#233442] dark:text-slate-400 opacity-70 font-['Plus_Jakarta_Sans'] text-sm tracking-wide hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all px-3 py-1 rounded-full" href="#">Models</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="neumorphic-inset bg-surface-container-low px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 md:w-64" placeholder="Search markets..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant p-2 neumorphic-extruded rounded-full cursor-pointer hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant p-2 neumorphic-extruded rounded-full cursor-pointer hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-0 h-full border-r-0 z-40 hidden lg:flex flex-col justify-between w-64 p-6 bg-[#F6F9FF] dark:bg-[#0F172A] shadow-[6px_0px_12px_rgba(35,52,66,0.05)] pt-24">
+<div class="space-y-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl neumorphic-extruded flex items-center justify-center bg-primary-container">
+<span class="material-symbols-outlined text-primary" data-icon="insights" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<h3 class="font-black text-[#233442] text-sm tracking-tight">Precision Intel</h3>
+<p class="text-[10px] font-medium uppercase tracking-widest text-outline">Market Analysis</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 text-[#233442] dark:text-slate-400 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 shadow-[inset_-3px_-3px_7px_rgba(255,255,255,0.7),inset_3px_3px_7px_rgba(35,52,66,0.1)] rounded-xl bg-[#F0F4F8] text-[#4D44E3] py-3 px-4 font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="insights" style="font-variation-settings: 'FILL' 1;">insights</span> Analysis
+                </a>
+<a class="flex items-center gap-3 text-[#233442] dark:text-slate-400 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Portfolio
+                </a>
+<a class="flex items-center gap-3 text-[#233442] dark:text-slate-400 py-3 px-4 hover:translate-x-1 transition-transform font-['Plus_Jakarta_Sans'] text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span> About
+                </a>
+</nav>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-lg hover:scale-95 transition-transform active:shadow-inner">
+            Predict
+        </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-32 px-8 pb-16 min-h-screen">
+<header class="mb-12">
+<h1 class="text-5xl font-extrabold tracking-tighter text-on-surface mb-2">Model Comparison</h1>
+<p class="text-on-surface-variant font-medium tracking-wide uppercase text-sm">Comparison of regression models for IPO listing gain prediction</p>
+</header>
+<!-- Comparison Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Model Card 1: Gradient Boosting -->
+<div class="neumorphic-extruded bg-surface rounded-lg p-8 flex flex-col hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="p-4 neumorphic-inset rounded-2xl bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="trending_up">trending_up</span>
+</div>
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Candidate</span>
+</div>
+<h3 class="text-2xl font-bold text-on-surface mb-2">Gradient Boosting</h3>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Boosting-based model capturing non-linear patterns.</p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-medium uppercase tracking-tighter">MAE (Lower Better)</span>
+<span class="font-bold text-on-surface">14.32</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-medium uppercase tracking-tighter">R² (Higher Better)</span>
+<span class="font-bold text-on-surface">0.49</span>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest font-bold">MAPE: Not reliable for this dataset</p>
+</div>
+<div class="mt-auto pt-6 border-t-0 flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline uppercase font-bold tracking-widest">Model Type</span>
+<span class="text-sm font-bold text-on-surface">Regression</span>
+</div>
+<button class="neumorphic-extruded p-3 rounded-full text-primary hover:text-primary-dim active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Model Card 2: CatBoost (Best Performing) -->
+<div class="best-performing-glow bg-surface rounded-lg p-8 flex flex-col relative border-2 border-primary/10 group">
+<div class="absolute -top-3 right-8 bg-primary text-white text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg z-10">
+                    Best Performing
+                </div>
+<div class="flex justify-between items-start mb-6">
+<div class="p-4 neumorphic-inset rounded-2xl bg-primary-container text-primary shadow-[inset_-2px_-2px_5px_rgba(255,255,255,0.7),inset_2px_2px_5px_rgba(35,52,66,0.1)]">
+<span class="material-symbols-outlined text-3xl" data-icon="account_tree" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+</div>
+<span class="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Selected</span>
+</div>
+<h3 class="text-2xl font-bold text-on-surface mb-2">CatBoost</h3>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Gradient boosting model optimized for tabular data.</p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-sm">
+<span class="text-primary font-bold uppercase tracking-tighter">MAE (Lower Better)</span>
+<span class="font-black text-primary text-lg">13.24</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-primary font-bold uppercase tracking-tighter">R² (Higher Better)</span>
+<span class="font-black text-primary text-lg">0.51</span>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest font-bold">MAPE: Not reliable for this dataset</p>
+</div>
+<div class="mt-auto pt-6 flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline uppercase font-bold tracking-widest">Model Type</span>
+<span class="text-sm font-bold text-on-surface text-primary">Regression</span>
+</div>
+<button class="bg-primary text-white p-3 rounded-full shadow-xl hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+</div>
+</div>
+<!-- Model Card 3: Random Forest -->
+<div class="neumorphic-extruded bg-surface rounded-lg p-8 flex flex-col hover:shadow-[-8px_-8px_16px_rgba(255,255,255,0.9),8px_8px_16px_rgba(35,52,66,0.12)] transition-all group">
+<div class="flex justify-between items-start mb-6">
+<div class="p-4 neumorphic-inset rounded-2xl bg-surface-container-low text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="psychology">psychology</span>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Candidate</span>
+</div>
+<h3 class="text-2xl font-bold text-on-surface mb-2">Random Forest</h3>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Ensemble of decision trees for stable predictions.</p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-medium uppercase tracking-tighter">MAE (Lower Better)</span>
+<span class="font-bold text-on-surface">13.49</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-outline font-medium uppercase tracking-tighter">R² (Higher Better)</span>
+<span class="font-bold text-on-surface">0.50</span>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest font-bold">MAPE: Not reliable for this dataset</p>
+</div>
+<div class="mt-auto pt-6 flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline uppercase font-bold tracking-widest">Model Type</span>
+<span class="text-sm font-bold text-on-surface">Regression</span>
+</div>
+<button class="neumorphic-extruded p-3 rounded-full text-tertiary hover:text-tertiary-dim active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings_slow_motion">settings_slow_motion</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Metrics Comparison Matrix -->
+<section class="mt-20">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tighter text-on-surface">Metric Matrix</h2>
+<p class="text-on-surface-variant text-sm uppercase tracking-widest font-bold">In-depth statistical validation</p>
+</div>
+<div class="flex gap-4">
+<button class="neumorphic-extruded px-6 py-2 rounded-full text-sm font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span> Export
+                    </button>
+</div>
+</div>
+<div class="neumorphic-extruded bg-surface rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-outline">Model</th>
+<th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-outline">MAE ↓</th>
+<th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-outline">R² ↑</th>
+<th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-outline">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="hover:bg-surface-container-lowest transition-colors border-b border-surface-container-high">
+<td class="px-8 py-6 font-bold text-on-surface">CatBoost</td>
+<td class="px-8 py-6 text-primary font-black">13.24</td>
+<td class="px-8 py-6 text-on-surface-variant font-medium">0.51</td>
+<td class="px-8 py-6">
+<span class="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Selected</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors border-b border-surface-container-high">
+<td class="px-8 py-6 font-bold text-on-surface">Random Forest</td>
+<td class="px-8 py-6 text-on-surface-variant font-medium">13.49</td>
+<td class="px-8 py-6 text-on-surface-variant font-medium">0.50</td>
+<td class="px-8 py-6">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Candidate</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-8 py-6 font-bold text-on-surface">Gradient Boosting</td>
+<td class="px-8 py-6 text-on-surface-variant font-medium">14.32</td>
+<td class="px-8 py-6 text-on-surface-variant font-medium">0.49</td>
+<td class="px-8 py-6">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Candidate</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Visualization Section -->
+<section class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="neumorphic-extruded bg-surface rounded-xl p-8">
+<h3 class="text-xl font-extrabold tracking-tight mb-6">Prediction Variance</h3>
+<div class="h-64 flex items-end gap-4 px-4">
+<div class="w-full bg-primary/20 rounded-t-xl shadow-[0_-4px_10px_rgba(77,68,227,0.2)] relative" style="height: 92%;">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">CB</span>
+</div>
+<div class="w-full bg-tertiary/20 rounded-t-xl neumorphic-inset relative" style="height: 86%;">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-tertiary">RF</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-t-xl neumorphic-inset relative" style="height: 80%;">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-outline">GB</span>
+</div>
+</div>
+</div>
+<div class="neumorphic-extruded bg-surface rounded-xl p-8 flex flex-col justify-center items-center text-center">
+<div class="w-24 h-24 neumorphic-inset rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<h3 class="text-2xl font-black text-on-surface mb-2">Best Model Summary</h3>
+<p class="text-on-surface-variant text-sm max-w-xs mb-6">CatBoost selected on lowest MAE with the strongest R² among evaluated regression models.</p>
+<div class="text-5xl font-black text-primary tracking-tighter">MAE: 13.24</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface py-4 flex justify-around items-center z-50 shadow-[0_-6px_12px_rgba(35,52,66,0.05)] px-6">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="grid_view">grid_view</span>
+<span class="material-symbols-outlined text-primary p-3 neumorphic-inset rounded-xl" data-icon="insights" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility">visibility</span>
+</nav>
+<script id="stitch-nav-routing">
+    (function () {
+        var routeMap = {
+            dashboard: "/stitch/dashboard.html",
+            "market analysis": "/stitch/insights.html",
+            analysis: "/stitch/model-comparison.html",
+            insights: "/stitch/insights.html",
+            portfolio: "/stitch/history.html",
+            "portfolio history": "/stitch/history.html",
+            history: "/stitch/history.html",
+            watchlist: "/stitch/about.html",
+            "about us": "/stitch/about.html",
+            about: "/stitch/about.html",
+            predict: "/stitch/predict-ipo.html",
+            "predict now": "/stitch/predict-ipo.html",
+            "predict ipo": "/stitch/predict-ipo.html"
+        };
+
+        var anchors = document.querySelectorAll('a[href="#"]');
+        anchors.forEach(function (anchor) {
+            var text = (anchor.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+            if (!text) {
+                return;
+            }
+
+            var target = routeMap[text];
+            if (!target) {
+                Object.keys(routeMap).some(function (key) {
+                    if (text.indexOf(key) !== -1) {
+                        target = routeMap[key];
+                        return true;
+                    }
+                    return false;
+                });
+            }
+
+            if (target) {
+                anchor.setAttribute("href", target);
+            }
+        });
+    })();
+</script>
+<script src="/stitch/bridge.js"></script>
+</body></html>
