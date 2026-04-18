@@ -41,7 +41,6 @@ Full-stack IPO listing gain prediction project with:
 ```powershell
 # from repository root
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
 pip install -r .\backend\requirements.txt
 
 # run API on :8000
