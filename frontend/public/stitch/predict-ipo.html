@@ -411,7 +411,7 @@
             return;
         }
 
-        var backendBase = window.IPO_API_BASE_URL || "http://localhost:8000";
+        var backendBase = window.IPO_API_BASE_URL || (window.location.protocol + "//" + window.location.hostname + ":8000");
 
         var issueSizeInput = document.getElementById("issue-size");
         var ipoNameInput = document.getElementById("ipo-name");

@@ -305,6 +305,11 @@
   function patchButtons() {
     var buttons = document.querySelectorAll("button");
     buttons.forEach(function (button) {
+      var buttonType = (button.getAttribute("type") || "").toLowerCase();
+      if (buttonType === "submit" || buttonType === "reset" || button.closest("form")) {
+        return;
+      }
+
       var explicitTarget = button.getAttribute("data-route");
       var target = null;
 
